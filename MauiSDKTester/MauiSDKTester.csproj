@@ -23,6 +23,8 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
+		<CodesignProvision>VS: com.localytics.xamarin.sample Development</CodesignProvision>
+		<CodesignKey>Apple Development: Ahmed Alaa (8CX8V9YLFU)</CodesignKey>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -39,7 +41,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="LocalyticsMaui" Version="1.0.3" />
+		<PackageReference Include="LocalyticsMaui" Version="1.0.6" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
 		<PackageReference Include="Xamarin.AndroidX.Core" Version="1.9.0.1" />
