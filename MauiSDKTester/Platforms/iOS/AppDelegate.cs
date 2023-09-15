@@ -13,6 +13,8 @@ public class AppDelegate : MauiUIApplicationDelegate
         // Localytics Integrate
         Localytics.LoggingEnabled = true;
         Localytics.Integrate("b70c948d304fc756d8b6e63-ecd3437a-a073-11e6-c6e3-008d99911bee", launchOptions ?? new NSDictionary());
+        // AutoIntegrate is not supported since .Net6. So, it shouldn't be used
+        //Localytics.AutoIntegrate("b70c948d304fc756d8b6e63-ecd3437a-a073-11e6-c6e3-008d99911bee", new NSDictionary(), launchOptions ?? new NSDictionary());
 
         // Register for remote notifications
         var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
