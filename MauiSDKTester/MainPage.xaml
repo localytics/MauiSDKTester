@@ -20,6 +20,32 @@
                 <Button Text="Refresh" IsEnabled="true" Clicked="OnRefresh"  BorderWidth="2" BorderColor="Black"/>
 
 
+                    <!--<Entry
+          MaxLength="20"
+      Style="{StaticResource CommonEntryStyle}"
+      Text="This is the text." />-->
+
+                <StackLayout Orientation="Vertical">
+
+                    <Entry
+                    Keyboard="Chat"
+                    x:Name="cutomerid"
+                    MaxLength="100"
+          
+                    />
+                <Entry
+                    Keyboard="Chat"
+                    x:Name="entry"
+                    MaxLength="100"
+                    Placeholder="Enter customer id"
+                    TextChanged="OnEntryTextChanged"
+                    Completed="OnEntryCompleted"
+                    />
+
+                    
+                     <Button Text="Diff customer id" Clicked="NewCustomerId" IsEnabled="true" BorderWidth="2" BorderColor="Black" />
+                    </StackLayout>
+
                 <StackLayout Orientation="Horizontal" Spacing="3">
                     <Entry Text="OptOut " IsEnabled="false"/>
                     <Switch x:Name="OptOut" Toggled="OptOutToggled" />

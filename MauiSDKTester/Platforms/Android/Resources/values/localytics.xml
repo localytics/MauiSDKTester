@@ -3,11 +3,11 @@
     <string name="ll_package_name" translatable="false">com.localytics.xamarin.sample</string>
 
     <!-- Define your Localytics app key-->
-    <string name="ll_app_key" translatable="false">b70c948d304fc756d8b6e63-ecd3437a-a073-11e6-c6e3-008d99911bee</string>
+    <string name="ll_app_key" translatable="false">797c89535bfa29a436057a8-278bfc2c-b93c-11e5-cc8d-00d0fea82624</string>
 
     <!-- Define your Localytics test mode scheme. This value should be amp followed by your app key
     ex. ampYOUR_APP_KEY -->
-    <string name="ll_test_mode_url_scheme" translatable="false">ampb70c948d304fc756d8b6e63-ecd3437a-a073-11e6-c6e3-008d99911bee</string>
+    <string name="ll_test_mode_url_scheme" translatable="false">ampb797c89535bfa29a436057a8-278bfc2c-b93c-11e5-cc8d-00d0fea82624</string>
 
     <!-- Toggle the Localytics referral receiver which is used to attribute sessions to
     their installation source -->

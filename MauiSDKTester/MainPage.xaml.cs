@@ -11,6 +11,7 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         localytics = new LocalyticsMauiShared();
+        
     }
 
     void LoggingToggled(object sender, Microsoft.Maui.Controls.ToggledEventArgs e)
@@ -170,11 +171,60 @@ public partial class MainPage : ContentPage
             });
         });
     }
-    void RefreshInfo()
+
+    void NewCustomerId(object sender, EventArgs e)
     {
+
+        
+        localytics.RefreshAllInboxCampaigns(
+                inboxCampaigns =>
+                {
+                    int count = inboxCampaigns.Length;
+                    entry.Text = "Inbox count--" + count;
+                }
+                );
+
+        localytics.SetCustomerId(null, false);
         localytics.LoggingEnabled = true;
         System.Threading.Tasks.Task.Factory.StartNew(() =>
         {
+            //int count = 10;
+            var campaigns = localytics.DisplayableInboxCampaigns();
+            string customerid = localytics.CustomerId;
+
+            Device.BeginInvokeOnMainThread(delegate
+            {
+                cutomerid.Text = customerid;
+                entry.Text = "Inbox count--" + campaigns.Length;
+            });
+
+        });
+    }
+    void RefreshInfo()
+    {
+
+        localytics.RefreshAllInboxCampaigns(
+                inboxCampaigns =>
+                {
+                    int count = inboxCampaigns.Length;
+                    entry.Text = "Inbox count--" + count;
+                }
+                );
+
+        //localytics.RefreshAllInboxCampaigns();
+        localytics.SetCustomerId("shubham1", false);
+        localytics.LoggingEnabled = true;
+        System.Threading.Tasks.Task.Factory.StartNew(() =>
+        {
+            //int count = 0;
+            //localytics.RefreshAllInboxCampaigns(
+            //    inboxCampaigns =>
+            //    {
+            //        count = inboxCampaigns.Length;
+            //    }
+            //    );
+            //IInboxCampaign[] list = localytics.RefreshAllInboxCampaigns();
+            var campaigns = localytics.DisplayableInboxCampaigns();
             string value0 = "AppKey: " + localytics.AppKey;
             string value1 = "CustomerId: " + localytics.CustomerId;
             string value2 = "InstallId: " + localytics.InstallId;
@@ -183,6 +233,7 @@ public partial class MainPage : ContentPage
             string value5 = "";
             string value6 = "Push Token/RegID: " + localytics.PushTokenInfo;
             string value7 = "";
+            string customerid = localytics.CustomerId;
 
             RefreshBackgroundProperties();
             var btnLoc = localytics.InAppMessageDismissButtonLocation;
@@ -192,6 +243,9 @@ public partial class MainPage : ContentPage
                 this.dismissBtnLocation.Text = btnLoc.ToString();
                 info0.Text = value0;
                 info1.Text = value1;
+                //entry.Text = count+"";
+                cutomerid.Text = customerid;
+                entry.Text = "Inbox count--" + campaigns.Length;
                 info2.Text = value2;
                 info3.Text = value3;
                 info4.Text = value4;
@@ -273,6 +327,19 @@ public partial class MainPage : ContentPage
     void OnSetIdentifier(object sender, EventArgs e)
     {
         localytics.SetIdentifier(identifierValue.Text, identifier.Text);
+    }
+
+
+    void OnEntryTextChanged(object sender, TextChangedEventArgs e)
+    {
+        string oldText = e.OldTextValue;
+        string newText = e.NewTextValue;
+        string myText = entry.Text;
+    }
+
+    void OnEntryCompleted(object sender, EventArgs e)
+    {
+        string text = ((Entry)sender).Text;
     }
 }
 

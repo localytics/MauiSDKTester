@@ -29,6 +29,7 @@ public class MainActivity : MauiAppCompatActivity
         localytics.TagEvent("Test Event");
         localytics.TagScreen("Test Screen");
         localytics.Upload();
+        Window.SetSoftInputMode(Android.Views.SoftInput.AdjustNothing);
     }
 
 
