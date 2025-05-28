@@ -53,7 +53,7 @@ public partial class App : Application
                 {"ll_session_timeout_seconds", 10}
             });
 
-        localytics.TestModeEnabled = true;
+        //localytics.TestModeEnabled = true;
         localytics.OpenSession();
         localytics.CloseSession();
         localytics.TagEvent("Event bEfore opting out");
